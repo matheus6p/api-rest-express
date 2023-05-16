@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import db from "./config/dbConnect.js";
 import routes from "./routes/index.js";
 
@@ -7,6 +8,7 @@ db.once("open", () => console.log("Conexão com o Banco feita com sucesso"));
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 routes(app);
